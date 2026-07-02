@@ -83,7 +83,7 @@ function removeTab(pos) {
     }
     document.querySelector(`#frame-${pos.toString()}`).remove()
     document.querySelectorAll('.frame').forEach(frame => {
-        const id = parseInt(frame.id.split('-')[1];
+        const id = parseInt(frame.id.split('-')[1]);
         if (id > removedPos) {
             frame.id = `frame-${id - 1}`;
         }
