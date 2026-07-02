@@ -187,6 +187,7 @@
     opacity: 1;
     transition: transform 0.1s ease-out, opacity 0s ease-out;
 }
+/*
 .nav:has(#forward-btn:active) .forward-back-back {
     transform: scale(1);
     opacity: 1;
@@ -197,7 +198,7 @@
     opacity: 1;
     transition: transform 0.1s ease-out, opacity 0s ease-out;
 }
-
+references (omg theyre gonna be used soon)*/
 .search {
     background-color: rgba(40, 40, 40);
     height: 34px;
@@ -288,11 +289,9 @@
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 .more:has(#more-btn:hover) .more-back { 
     opacity: 1;
 }
-
 .more-back-back {
     right: 3px;
     width: 34px;
