@@ -137,13 +137,14 @@
 .nav:has(#refresh-btn:hover) .refresh-back { 
     opacity: 1;
 }
+/*
 .nav:has(#forward-btn:hover) .forward-back { 
     opacity: 1;
 }
 .nav:has(#back-btn:hover) .back-back {
     opacity: 1;
 }
-
+refrences*/
 .refresh-back-back {
     left: 77px;
     width: 34px;
