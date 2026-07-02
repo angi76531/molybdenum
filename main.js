@@ -82,7 +82,6 @@ function navigate(url, isForward, isBackward, isRefresh) {
         document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`;
         tabs[activeTab][1] = parsed[1];
     }
-    console.log(tabs[activeTab]);
 }
 function removeTab(pos) {
     if (pos < 0 || pos >= tabs.length){return}
@@ -152,6 +151,9 @@ if (sbar) {
 }else{
     console.log("HELP ME");
 }
+document.querySelector("#refresh-btn").addEventListener("click", function(){
+    navigate(tabs[activeTab][0], null, null, true);
+})
 //insertsvg("resources/navback.svg", "#backdiv", "nav-back", "nav-icon");
 //insertsvg("resources/navback.svg", "#forwarddiv", "nav-forward", "nav-icon");
 //insertsvg("resources/refresh.svg", "#refreshdiv", "nav-refresh", "nav-icon"); Not sure why i added this its unnecessary. all of the svgs are in the html alreafdty.
