@@ -39,12 +39,25 @@ function addTab(url) {
             "<iframe src='' style='display: block; border: none; width: 100%; height: 100vh;' class='iframee'>bruh</iframe>"
     );
     switchActive(tabs.length - 1);
+    const nohistorysave = nohistory;
+    nohistory = true;
     navigate(url);
+    nohistory = nohistorysave;
 }
-function navigate(url, isForward, isRefresh) {
+function navigate(url, isForward, isBackward, isRefresh) {
     let parsed = parseURL(url);
     if (!url) {
         return false;
+    }
+    if (!nohistory && !isRefresh) {
+        if (isForward) {
+            tabs[activeTab][4].pop();
+        }else if(isBackward) {
+            tabs[activeTab][4].push(tabs[activeTab][0]); // Shits weird. if youre going forward, next page in forward gets removed. if youre going backward, current tab becomes the future. if navigating normally, current tab becomes past and future is no more
+        }else{
+            tabs[activeTab][3].push(tabs[activeTab][0]);
+            tabs[activeTab][4] = []; 
+        }
     }
     tabs[activeTab][0] = url;
     let r = parsed;
@@ -59,18 +72,17 @@ function navigate(url, isForward, isRefresh) {
         document.body.querySelector(".searchbar").value = parseURL(tabs[activeTab][0])[1];
     }
     if (parsed[0] === 0) {
-        document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `chrome/${parsed[1]}/index.html`
+        document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `chrome/${parsed[1]}/index.html`;
+        tabs[activeTab][1] = url;
+        // actual proccy logic below
     }else if (parsed[0] === 1) {
-        document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`
+        document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`;
+        tabs[activeTab][1] = parsed[1];
     }else if(parsed[0] === 2) {
-        document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`
+        document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`;
+        tabs[activeTab][1] = parsed[1];
     }
-    if (!nohistory && !isForward && !isRefresh) {
-        tabs[activeTab][3].push(url)
-        
-    }else if(!nohistory && isForward && !isRefresh) {
-        tabs[activeTab][4].push(url)
-    }
+    console.log(tabs[activeTab]);
 }
 function removeTab(pos) {
     if (pos < 0 || pos >= tabs.length){return}
