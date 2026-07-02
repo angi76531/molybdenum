@@ -1,0 +1,370 @@
+.bar {
+    height: 88px;
+    background-color: rgba(31, 32, 32);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.divider {
+    height:1px;
+    background-color: rgb(70, 71, 73);
+    width: 100%;
+    position: fixed;
+    top: 85px;
+    left: 0;
+    z-index: 1000;
+}
+.frame {
+    position: fixed;
+    top: 85px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+}
+.top {
+    height: 38px;
+    background-color: rgba(31, 32, 32);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.bottom {
+    height: 46px;
+      background-color: rgba(60,60,60);
+    width: 100%;
+    position: fixed;
+    top: 39px;
+    left: 0%;
+    border-radius: 8px;
+}
+.flatten {
+    height: 10px;
+    background-color: rgba(60,60,60);
+    width: 100%;
+    position: fixed;
+    top: 75px;
+    left: 0%;
+}
+.nav-icon {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    top: 56px;
+    fill: rgba(123, 123, 123);
+}
+    
+#nav-back {
+    left: 16px;
+}
+#nav-forward {
+    left: 52px;
+    transform: scaleX(-1);
+}
+#nav-refresh {
+    left: 82px;
+    width: 24px;
+    height: 24px;
+    top: 50px;
+    fill: rgb(180, 180, 180);
+}
+.nav-back-wrapper {
+    left: 16px;
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    top: 56px;
+    fill: rgba(123, 123, 123,0.5);
+}
+.refresh-back {
+    left: 77px;
+    width: 34px;
+    height: 34px; 
+    position: fixed;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(80, 80, 80,1); /*only apply hover properties when thhe fill of the svg is set to rgb(180,180,180)*/
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.forward-back {
+    left: 40px;
+    width: 34px;
+    height: 34px;
+    position: fixed;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(80, 80, 80,1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.back-back {
+    left: 5px;
+    width: 34px;
+    height: 34px;
+    position: fixed;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(80, 80, 80,1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.refresh-back:hover { /* this is here because refresh is always available */
+    opacity: 1;
+}
+.nav:has(#nav-refresh:hover) .refresh-back { /* so it works when hovering over the svg itself */
+    opacity: 1;
+}
+/*
+.forward-back:hover { 
+    opacity: 1;
+}
+.nav:has(#nav-forward:hover) .forward-back { 
+    opacity: 1;
+}
+.back-back:hover { 
+    opacity: 1;                                               
+}
+.nav:has(#nav-back:hover) .back-back {
+    opacity: 1;
+}
+this is references*/
+
+.refresh-back-back {
+    left: 77px;
+    width: 34px;
+    height: 34px;
+    position: fixed;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.185);
+    transform: scale(0);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0s 0.4s;
+}
+
+.forward-back-back {
+    left: 40px;
+    width: 34px;
+    height: 34px;
+    position: fixed;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.185);
+    transform: scale(0);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0s 0.4s;
+}
+.back-back-back {
+    left: 5px;
+    width: 34px;
+    height: 34px;
+    position: fixed;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.185);
+    transform: scale(0);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0s 0.4s;
+}
+.refresh-back:active .refresh-back-back,
+.nav:has(#nav-refresh:active) .refresh-back-back {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.1s ease-out, opacity 0s ease-out;
+}
+/*
+.forward-back:active .forward-back-back,
+.nav:has(#nav-forward:active) .forward-back-back {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.1s ease-out, opacity 0s ease-out;
+}
+
+.back-back:active .back-back-back,
+.nav:has(#nav-back:active) .back-back-back {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.1s ease-out, opacity 0s ease-out;
+}
+future reference*/
+.search {
+    background-color: rgba(40, 40, 40);
+    height: 34px;
+    position:fixed;
+    top: 45px;
+    border-radius: 24px;
+    left: 121px;
+    right: 85px;
+    transform: scaleY(0.98);
+    transition: background-color 0.25s;
+}
+.search:hover {
+  background-color: rgba(74,74,74);
+}
+.info {
+  position: fixed;
+  z-index: 1000;
+  top: 5px;
+  left: 5px;
+  height: 23px;
+  width: 23px;
+  border-radius: 100px;
+  background-color: rgb(60, 60, 60);
+  transform: scaleY(0.99)
+}
+
+.searchbar {
+  position: fixed;
+  height: 28px;
+  top: 2px;
+  left: 35px;
+  right: 5px;
+  background: none;
+  outline: none;
+  border: none;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  font-weight: 330;
+  line-height: 34px;
+  color: rgba(255, 255, 255,0.95);
+}
+.searchbar::placeholder {
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  font-weight: 330;
+  line-height: 34px;
+  color: #f5f5f5;
+}
+.search.no-outline {
+    box-shadow: none !important;
+    background-color: rgba(40, 40, 40) !important;
+}
+/* oh boy (if search is not focused, and the placeholder isnt shown, show gray outline since thats what chrome does ig) */
+.search:not(:focus-within):has(.searchbar:not(:placeholder-shown)) {
+    box-shadow: 0 0 0 1px rgb(143, 143, 143);
+    background-color: rgba(60, 60, 60);
+}
+.searchbar:hover .search {
+    background-color: rgba(74,74,74);
+}
+.search:focus-within {
+  box-shadow: 0 0 0 2px rgb(156, 211, 255);
+  background-color: rgb(60,60,60)
+}
+.right {
+  position: fixed;
+  background: none;
+  height: 88px;
+  width: 88px;
+}
+.more {
+  position: fixed;
+  right: 8px;
+  top: 49px;
+  z-index: 67;
+}
+#more {
+  fill: rgb(200,200,200);
+  transform: scaleY(0.75) scaleX(0.75);
+}
+.more-back {
+    position: fixed;
+    right: 3px;
+    width: 34px;
+    height: 34px;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(80, 80, 80,1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.more-back:hover { 
+    opacity: 1;
+}
+.more:hover .more-back { 
+    opacity: 1;
+}
+#more:hover .more-back { 
+    opacity: 1;
+}
+.more-back-back {
+    right: 3px;
+    width: 34px;
+    height: 34px;
+    position: fixed;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.103);
+    transform: scale(0);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0s 0.4s;
+}
+.more-back:active .more-back-back,
+.right:has(#more:active) .more-back-back {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.1s ease-out, opacity 0s ease-out;
+}
+
+
+
+.profile {
+  position: fixed;
+  right: 49px;
+  top: 54px;
+  z-index: 67;
+}
+#profile {
+  fill: rgb(200, 200, 200);
+  transform: scaleY(1.25) scaleX(1.25);
+}
+.profile-back {
+    position: fixed;
+    right: 40px;
+    width: 34px;
+    height: 34px;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(80, 80, 80,1);
+    transform: translateX(-0.025vh); /* please lord css do not punish me this is all i could do to center it without resizing stuff */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.profile-back:hover { 
+    opacity: 1;
+}
+.profile:hover .profile-back { 
+    opacity: 1;
+}
+#profile:hover .profile-back { 
+    opacity: 1;
+}
+.profile-back-back {
+    right: 40px;
+    width: 34px;
+    height: 34px;
+    position: fixed;
+    top: 45px;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.103);
+    transform: scale(0);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0s 0.4s;
+}
+.profile-back:active .profile-back-back,
+.right:has(#profile:active) .profile-back-back {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.1s ease-out, opacity 0s ease-out;
+}
+::selection {
+  background-color: rgb(168, 199, 250);
+  color: #000000;
+}

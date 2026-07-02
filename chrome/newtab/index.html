@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 81.25%;
+      background-color: rgba(60,60,60,1);
+      color: #e8eaed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .ntp-content {
+      margin-top: 130px; 
+      width: 100%;
+      max-width: 746px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo-container {
+      margin-bottom: 38px;
+      user-select: none;
+    }
+    .logo-container img {
+      width: 272px; 
+      height: auto;
+    }
+    .search-form {
+      width: 100%;
+    }
+    .search-box {
+      width: 100%;
+      height: 56px;
+      background-color: #FFFFFF; 
+      border-radius: 100px; 
+      display: flex;
+      align-items: center;
+      padding: 0 14px 0 16px; 
+      box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+     font-family: inherit; 
+  font-weight: 900; 
+  font-size: 16px;
+    }
+    .left-actions {
+      display: flex;
+      align-items: center;
+      margin-right: 13px;
+      flex-shrink: 0;
+    }
+    .plus-icon {
+      width: 20px;
+      height: 20px;
+      fill: #5f6368;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 0; 
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #202124; 
+      font-size: 16px;
+    }
+    .search-input::placeholder {
+      color: #999999;
+    }
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px; 
+      flex-shrink: 0;
+    }
+    .action-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .action-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #000000; /* this was originally gray and i did NOT realize that it was there which was BAD */
+    }
+    .shortcuts-grid {
+      margin-top: 120px; 
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .shortcut-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 112px;
+      border-radius: 4px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .tile-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .tile-icon-wrapper svg {
+      width: 20px;
+      height: 20px;
+      fill: #e8eaed;
+    }
+    .tile-title {
+      font-size: 12px;
+      color: #e8eaed;
+    }
+    
+  </style>
+</head>
+<body>
+  
+  <div class="ntp-content">
+    <div class="logo-container">
+      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png" alt="pazoingus of of" />
+    </div>
+
+    <form id="search-form" class="search-form">
+      <div class="search-box">
+        <div class="left-actions">
+              <div class="plus-icon"><svg viewBox="0 0 24 24" fill="black"><path d="M21 10.5h-7.5V3h-3v7.5H3v3h7.5V21h3v-7.5H21v-3z"/></svg>
+          </div>
+        </div>
+        <input id="search-input" class="search-input" type="text" placeholder="Big Google is angry. No search for you." autocomplete="off" autofocus />
+        <div class="right-actions">
+          <div class="action-icon">
+             <svg viewBox="80 50 80 100" xmlns="http://www.w3.org/2000/svg"><path d="M 115.64255029141403 59.02820583139775 C 112.16290276957338 60.070962020975024, 109.26114171831017 62.594327455331694, 107.39762080392482 66.19797953429496 C 105.08289788210139 70.67416008320187, 105.42247079381534 104.45433802402732, 107.82726529726997 108.93833642330773 C 111.63584998339961 116.03985283628853, 122.0509513421212 118.10264160346654, 127.65727906949442 112.86581905198861 C 132.61860444284957 108.2314876564925, 133 106.38151693278013, 133 86.95078904941741 C 133 65.71755344735485, 132.33701221502062 63.30974082907423, 125.59130951662027 60.04420217863253 C 121.02207358529773 57.83227301367555, 119.98631197675681 57.726498013289834, 115.64255029141403 59.02820583139775 M 88.81837580896988 102.51495752436345 C 87.85840671323659 103.47492662009677, 89.83282982856281 112.75209408092482, 91.8238225059292 116.63656706481768 C 95.66979364742562 124.14014614163068, 104.05279342595693 130.79602332094177, 111.75 132.45741802002595 L 115 133.15891053163818 115 140.0794552658191 L 115 147 119.5 147 L 124 147 124 140.15828763342404 L 124 133.3165752668481 128.15885335067372 132.0705524955431 C 139.69777892347125 128.6134063045694, 148.70490435851863 118.12651773969426, 149.7843789623372 106.89221131646573 L 150.2544585269928 102 145.7550374852168 102 C 141.32618715541076 102, 141.24617838355397 102.05902238408301, 140.65386815349447 105.76312707447025 C 139.12270695048812 115.33848320705818, 129.07577703024538 124, 119.5 124 C 109.92422296975461 124, 99.87729304951185 115.33848320705815, 98.34613184650553 105.7631270744702 C 97.76104870332549 102.10421810255855, 97.62791344042417 102, 93.53885844494629 102 C 91.22581963355915 102, 89.10160244736977 102.23173088596356, 88.81837580896988 102.51495752436345" style="fill: #000000; fill-rule: evenodd;"/></svg>
+          </div>
+          <div class="action-icon">
+            <svg viewBox="106 81 79 79" xmlns="http://www.w3.org/2000/svg" width="279" height="241"><path d="M 133.3280431358953 84.89762585848092 C 130.78809655900923 88.43115320041076, 129.9955391143026 88.85530926768318, 124.84382183205267 89.43815975434102 C 111.6862441351762 90.92677027850266, 106 97.48065528723286, 106 111.15728374486346 L 106 119 110.5 119 L 115 119 115 113.46788136910357 C 115 106.44930397345485, 117.1133438479042 101.28760437405603, 120.51673083157468 99.99363894917298 C 124.93170268968188 98.31506964053054, 167.55280599370641 98.71738669940635, 170.94124265409724 100.46961539555865 C 174.71241110493585 102.41976239249897, 176 106.53790485219804, 176 116.64922326522657 L 176 125 180.5 125 L 185 125 185 113.96016193270356 C 185 96.9538340520903, 181.32800465210929 91.7582141903113, 167.80376022545295 89.62867007178033 C 161.4620681447133 88.63009945696247, 160.506495355867 88.16470828990482, 157.81170032151937 84.76225228102689 L 154.83194136551225 81 145.4808249738241 81 L 136.12970858213592 81 133.3280431358953 84.89762585848092 M 141.642550291414 112.01789395929856 C 136.38503826236405 113.6124011651815, 132 119.2807764059051, 132 124.48245870401225 C 132 137.90787112631028, 150.07835154694303 143.11973072009798, 157.04048448809942 131.7014514851578 C 163.22780388089106 121.55390889443554, 153.0593898178094 108.55537541580118, 141.642550291414 112.01789395929856 M 106 138.8427162551365 C 106 148.91862823225532, 108.56458293813436 154.31527139798376, 114.9600225248131 157.6972612200504 C 118.87638366324201 159.7682828175794, 120.65720202708654 160, 132.6572837448635 160 L 146 160 146 155.581556561187 L 146 151.163113122374 133.51991882762064 150.831556561187 C 121.56091045433271 150.51384326776474, 120.92935198927374 150.38939707483098, 118.39362376331786 147.85097766296997 C 116.1703112355635 145.62530551825185, 115.66621292165047 144.0671214601781, 115.23933750606531 138.10097766296997 L 114.7312651407362 131 110.36563257036809 131 L 106 131 106 138.8427162551365 M 165.45454545454544 140.45454545454544 C 159.55376496911737 146.35532593997357, 164.74209927919864 156.95264692015164, 172.88489795267935 155.631252604197 C 180.27500672160178 154.43200304478643, 183.2419769223785 146.8178887496539, 178.51035687409933 141.19467781856164 C 175.002573724297 137.02591440336664, 169.21147328634254 136.6976176227484, 165.45454545454544 140.45454545454544" style="fill: #000000; fill-rule: evenodd;"/></svg>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="shortcuts-grid">
+      <div class="shortcut-tile" id="add-shortcut-trigger">
+        <div class="tile-icon-wrapper">
+          <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        </div>
+        <div class="tile-title">Add shortcut</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // this index.html IS vibecoded so dont use it
+  </script>
+</body>
+</html>
