@@ -66,13 +66,14 @@ function navigate(url, isForward, isRefresh) {
         document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`
     }
     if (!nohistory && !isForward && !isRefresh) {
-
+        tabs[activeTab][3].push(url)
+        
     }else if(!nohistory && isForward && !isRefresh) {
-
+        tabs[activeTab][4].push(url)
     }
 }
 function removeTab(pos) {
-    if (pos < 0 || pos >= tabs.length) return;
+    if (pos < 0 || pos >= tabs.length){return}
     tabs.splice(pos, 1);
     if (activeTab >= tabs.length) {
         activeTab = tabs.length - 1;
@@ -80,7 +81,13 @@ function removeTab(pos) {
     if (activeTab < 0) {
         activeTab = 0;
     }
-    // todo: add delete the div or sometinhgf lodkwapodjAPOWIFjhoawejhp;owgijpo;ewi
+    document.querySelector(`#frame-${pos.toString()}`).remove()
+    document.querySelectorAll('.frame').forEach(frame => {
+        const id = parseInt(frame.id.split('-')[1];
+        if (id > removedPos) {
+            frame.id = `frame-${id - 1}`;
+        }
+    });
 }
 function parseURL(url) {
     if (url.startsWith("chrome://")) {
