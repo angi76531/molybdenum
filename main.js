@@ -200,7 +200,7 @@ if (sbar) {
         if ((tabs[activeTab] && this.value === tabs[activeTab][0]) || (tabs[activeTab] && this.value === parseURL(tabs[activeTab][0])[1])) {
             document.body.querySelector(".search").classList.add("no-outline");
         }
-        if (this.value.includes(".")) {this.placeholder=this.value.replace("https://","");this.value=""}
+        //if (this.value.includes(".")) {this.placeholder=this.value.replace("https://","");this.value=""}
     }
     sbar.onfocus = function() {
         if (this.placeholder.includes(".")) {this.value=`https://${this.placeholder}`}
@@ -219,7 +219,13 @@ document.querySelector("#forward-btn").addEventListener("click", function(){
 document.querySelector("#back-btn").addEventListener("click", function(){
     backward();
 })
-
+sbar.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        this.blur();
+        navigate(this.value)
+    }
+});
 //insertsvg("resources/navback.svg", "#backdiv", "nav-back", "nav-icon");
 //insertsvg("resources/navback.svg", "#forwarddiv", "nav-forward", "nav-icon");
 //insertsvg("resources/refresh.svg", "#refreshdiv", "nav-refresh", "nav-icon"); Not sure why i added this its unnecessary. all of the svgs are in the html alreafdty.
