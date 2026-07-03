@@ -54,7 +54,9 @@
     height: 12px;
     top: 56px;
     fill: rgba(123, 123, 123);
+    transition: fill 0.1s ease;
 }
+
     
 #nav-back {
     left: 16px;
@@ -99,6 +101,7 @@
     border-radius: 100px;
     background-color: rgba(80, 80, 80,1);
     opacity: 0;
+    transform: translateX(0.025vh);
     transition: opacity 0.3s ease;
 }
 .btn {
@@ -166,7 +169,7 @@ refrences*/
     top: 45px;
     border-radius: 100px;
     background-color: rgba(255, 255, 255, 0.185);
-    transform: scale(0);
+    transform: scale(0) translateX(0.025vh);
     opacity: 0;
     transition: opacity 0.4s ease, transform 0s 0.4s;
 }
@@ -251,10 +254,10 @@ references (omg theyre gonna be used soon)*/
 }
 .search.no-outline {
     box-shadow: none !important;
-    background-color: rgba(40, 40, 40);
+    background-color: rgba(40, 40, 40) !important;
 }
 .search.no-outline:hover {
-    background-color: rgba(74,74,74);
+    background-color: rgba(74,74,74) !important;
 }
 .search:not(:focus-within):has(.searchbar:not(:placeholder-shown)) {
     box-shadow: 0 0 0 1px rgb(143, 143, 143);
