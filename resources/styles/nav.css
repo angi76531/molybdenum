@@ -260,6 +260,9 @@ references (omg theyre gonna be used soon)*/
     box-shadow: 0 0 0 1px rgb(143, 143, 143);
     background-color: rgba(60, 60, 60);
 }
+.search:not(:focus-within):has(.searchbar:not(:placeholder-shown)):hover {
+    background-color: rgb(73, 73, 73);
+}
 .searchbar:hover .search {
     background-color: rgba(74,74,74);
 }
