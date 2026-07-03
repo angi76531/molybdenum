@@ -54,10 +54,11 @@ function navigate(url, isForward, isBackward, isRefresh) {
     if (parsed[0] === 0) {
         document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `chrome/${parsed[1]}/index.html`;
         tabs[activeTab][1] = url;
-        // actual proccy logic below
     }else{
         document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`;
         tabs[activeTab][1] = parsed[1];
+        // actual proccy logic below
+        
     }
     if ((tabs[activeTab] && this.value === tabs[activeTab][0]) || (tabs[activeTab] && this.value === parseURL(tabs[activeTab][0])[1])) {
             document.body.querySelector(".search").classList.add("no-outline");
