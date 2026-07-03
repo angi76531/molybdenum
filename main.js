@@ -32,7 +32,7 @@ function navigate(url, isForward, isBackward, isRefresh) {
         if (isForward) {
             tabs[activeTab][4].pop();
         }else if(isBackward) {
-            tabs[activeTab][4].push(tabs[activeTab][0]); // Shits weird. if youre going forward, next page in forward gets removed. if youre going backward, current tab becomes the future. if navigating normally, current tab becomes past and future is no more
+            tabs[activeTab][4].push(tabs[activeTab][0]); 
         }else{
             tabs[activeTab][3].push(tabs[activeTab][0]);
             tabs[activeTab][4] = []; 
@@ -55,10 +55,7 @@ function navigate(url, isForward, isBackward, isRefresh) {
         document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `chrome/${parsed[1]}/index.html`;
         tabs[activeTab][1] = url;
         // actual proccy logic below
-    }else if (parsed[0] === 1) {
-        document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`;
-        tabs[activeTab][1] = parsed[1];
-    }else if(parsed[0] === 2) {
+    }else{
         document.querySelector(`#frame-${activeTab.toString()}`).querySelector(".iframee").src = `${parsed[1]}`;
         tabs[activeTab][1] = parsed[1];
     }
@@ -91,6 +88,8 @@ function parseURL(url) {
     } 
     else if (url.startsWith("https://") || url.startsWith("http://")) {
         return [1, url];
+    }else if (url.includes(".") && !url.includes(" ")) {
+        return [3, `https://${url}`];
     }
     else {
         return [2, "https://google.com/search?q=" + encodeURIComponent(url)];

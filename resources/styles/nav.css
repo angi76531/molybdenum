@@ -251,7 +251,10 @@ references (omg theyre gonna be used soon)*/
 }
 .search.no-outline {
     box-shadow: none !important;
-    background-color: rgba(40, 40, 40) !important;
+    background-color: rgba(40, 40, 40);
+}
+.search.no-outline:hover {
+    background-color: rgba(74,74,74);
 }
 .search:not(:focus-within):has(.searchbar:not(:placeholder-shown)) {
     box-shadow: 0 0 0 1px rgb(143, 143, 143);
