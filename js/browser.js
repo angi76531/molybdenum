@@ -4,11 +4,24 @@ import {createTabUI, switchTabUI, navigateUI} from "./ui.js";
 
 export const createTab = (url) => {
     createTabObj(url);
-    createTabUI();
+    createTabUI(state.tabs.length - 1);
     switchTabUI(state.activetab);
     navigate(url);
 };
-
+export const removeTab = (pos) => {
+    if (pos < 0 || pos >= state.tabs.length) return;
+    state.tabs.splice(pos, 1);
+    removeTabUI(pos);
+    if (state.tabs.length === 0) {
+        createTab("chrome://newtab");
+        return;
+    }
+    let newActiveTab = state.activetab;
+    if (state.activetab >= pos) {
+        newActiveTab = Math.max(0, state.activetab - 1);
+    }
+    switchTab(newActiveTab);
+};
 export const switchTab = (pos) => {
     state.activetab = pos;
     switchTabUI(pos);
